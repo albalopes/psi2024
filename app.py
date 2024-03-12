@@ -37,3 +37,8 @@ def q1_pedirpizza(sabor):
 def dobro(n):
     resultado = 2*n
     return render_template('dobro.html', n=n, resultado=resultado)
+
+@app.route('/perfil', defaults={'nome': 'anonimo'})
+@app.route('/perfil/<nome>')
+def perfil(nome):
+    return render_template('perfil.html', nome=nome)
