@@ -23,11 +23,13 @@ def gastos():
     return render_template('gastos.html', a = mes, b = valor)
 '''
 
-@app.route('/gastos', defaults={"mes": "Janeiro", "valor": "0"})
-@app.route('/gastos/<mes>/<valor>')
-def gastos(mes, valor):
-    return render_template('gastos.html', a = mes, b = valor)
+@app.route('/gastos/<mes>')
+def gastos(mes):
+    return render_template('gastos.html', a = mes)
 
+@app.route('/q1_pedirpizza/<sabor>')
+def q1_pedirpizza(sabor):
+    return render_template('q1_pedirpizza.html' , sabor=sabor )
 
 @app.route('/dobro', defaults={"n":0})
 @app.route('/dobro/<int:n>')
